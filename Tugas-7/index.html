@@ -1,0 +1,693 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Repository Untuk Tugas">
+      
+      
+        <link rel="canonical" href="https://iqbalzuhdi12.github.io/Tugas-7/">
+      
+      
+        <meta name="author" content="Moh. Iqbal Zuhdi Husaeni">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Metode Monte Carlo - (180411100051) Moh. Iqbal Zuhdi Husaeni</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#metode-monte-carlo" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://iqbalzuhdi12.github.io/" title="(180411100051) Moh. Iqbal Zuhdi Husaeni" aria-label="(180411100051) Moh. Iqbal Zuhdi Husaeni" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              (180411100051) Moh. Iqbal Zuhdi Husaeni
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Metode Monte Carlo
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/iqbalzuhdi12/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Iqbal Zuhdi
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://iqbalzuhdi12.github.io/" title="(180411100051) Moh. Iqbal Zuhdi Husaeni" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    (180411100051) Moh. Iqbal Zuhdi Husaeni
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/iqbalzuhdi12/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Iqbal Zuhdi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="index" class="md-nav__link">
+      index
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-1/" title="Error in Numerical" class="md-nav__link">
+      Error in Numerical
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-2/" title="Numerical Solution" class="md-nav__link">
+      Numerical Solution
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-3/" title="Persamaan Linier" class="md-nav__link">
+      Persamaan Linier
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-4/" title="Integrasi Numerik" class="md-nav__link">
+      Integrasi Numerik
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-5/" title="Richardson Extrapolation" class="md-nav__link">
+      Richardson Extrapolation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tugas-6/" title="Metode Eurel" class="md-nav__link">
+      Metode Eurel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Metode Monte Carlo
+      </label>
+    
+    <a href="./" title="Metode Monte Carlo" class="md-nav__link md-nav__link--active">
+      Metode Monte Carlo
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soal" class="md-nav__link">
+    Soal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-program-1" class="md-nav__link">
+    Listing Program 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-program-1" class="md-nav__link">
+    Output Program 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-program-2" class="md-nav__link">
+    Listing Program 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-program-2" class="md-nav__link">
+    Output Program 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perhitungan-manual" class="md-nav__link">
+    Perhitungan manual
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#soal" class="md-nav__link">
+    Soal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-program-1" class="md-nav__link">
+    Listing Program 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-program-1" class="md-nav__link">
+    Output Program 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-program-2" class="md-nav__link">
+    Listing Program 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-program-2" class="md-nav__link">
+    Output Program 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perhitungan-manual" class="md-nav__link">
+    Perhitungan manual
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/iqbalzuhdi12/edit/master/docs/Tugas-7.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="metode-monte-carlo">Metode Monte Carlo<a class="headerlink" href="#metode-monte-carlo" title="Permanent link">&para;</a></h1>
+<p>Dalam matematika, integrasi Monte Carlo adalah integrasi numerik menggunakan angka acak. Integrasi ini digunakan untuk mengevaluasi nilai integral tentu, biasanya yang multidimensi. Berbeda dengan metodemetode integrasi yang lain, integrasi Monte Carlo menggunakan bilangan acak untuk mengambil titik sampel dari daerah yang diintegrasikan. Akan tetapi pembangkit bilangan acak yang sudah ada sekarang tidak ada yang bisa menghasilkan bilangan yang benar-benar acak. Karena itu perlu ditambahkan pemeriksaan agar bilangan yang dihasilkan acak dan diusahkan bilangan acak yang ada berjauhan dengan bilangan acak yang lain.</p>
+<p>Salah satu yang unik dalam metode integrasi Monte Carlo adalah galat yang diperoleh dari metode integrasi ini bisa berbeda tergantung dari jumlah datanya. Untuk data-data yang sedikit di dimensi yang sedikit, akurasi Monte Carlo lebih rendah dibanding metode-metode integrasi lain. Akan tetapi bila datanya banyak dan multidimensi, integrasi ini jauh lebih cepat dibandingkan metode integrasi yang lain.</p>
+<p>Metode <em>Monte Carlo</em> pertama kali ditemukan oleh Enrico Fermi pada tahun 1930-an. Melihat dari cara kerjanya metode <em>Monte Carlo</em> merupakan metode yang memberikan segala kemungkinan nilai dari suatu variabel. Metode <em>Monte Carlo</em> merupakan metode yang memanfaatkan <em>strong law of large number</em> dalam melakukan perhitungan, artinya semakin banyak variabel acak yang digunakan akan semakin baik pula pendekatan nilai eksaknya. Metode <em>Monte Carlo</em> menggunakan rata-rata sebagai penaksir nilai eksaknya.</p>
+<h2 id="soal">Soal<a class="headerlink" href="#soal" title="Permanent link">&para;</a></h2>
+<p><img alt="img" src="C:\Users\Oryzha\Documents\Iqbal\Kuliah\Semester 4\Komputasi Numerik\Tugas 7\soal.png" /></p>
+<h2 id="listing-program-1">Listing Program 1<a class="headerlink" href="#listing-program-1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>from scipy import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 0
+b = 2
+N = 2500
+
+#function for integral
+def func(x):
+    return (4-x**2)**0.5
+
+area = []
+for i in range(N):
+    xrand = np.zeros(N)
+
+    for i in range(len(xrand)):
+        xrand[i] = random.uniform(a,b)
+        integral = 0.0
+
+    for i in range(N):
+        integral+=func(xrand[i])
+
+    jawab = (b-a)/float(N)*integral
+    area.append(jawab)
+
+plt.title(&quot;Nilai phi&quot;)
+plt.hist(area,bins = 30, ec = &#39;black&#39;)
+plt.xlabel(&quot;Area&quot;)
+plt.show()
+print(&quot;Nilai phi terletak pada x =&quot;,jawab)
+</code></pre></div>
+
+
+<h2 id="output-program-1">Output Program 1<a class="headerlink" href="#output-program-1" title="Permanent link">&para;</a></h2>
+<p>Karena menggunakan bilangan random, maka nilai phi yang muncul akan berubah-ubah setiap program dijalankan.</p>
+<ol>
+<li>Hasil run program pertama :</li>
+</ol>
+<p><img alt="img" src="C:\Users\Oryzha\Documents\Iqbal\Kuliah\Semester 4\Komputasi Numerik\Tugas 7\mc1.png" /></p>
+<div class="codehilite"><pre><span></span><code>Nilai phi terletak pada x = 3.131335254731468
+</code></pre></div>
+
+
+<ol>
+<li>Hasil run program kedua :</li>
+</ol>
+<p><img alt="img" src="C:\Users\Oryzha\Documents\Iqbal\Kuliah\Semester 4\Komputasi Numerik\Tugas 7\mc1b.png" /></p>
+<div class="codehilite"><pre><span></span><code>Nilai phi terletak pada x = 3.1560310025850873
+</code></pre></div>
+
+
+<p>Dan seterusnya.</p>
+<h2 id="listing-program-2">Listing Program 2<a class="headerlink" href="#listing-program-2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>from scipy import random #import library random dari scipy
+import numpy as np #import library numpy
+
+a = -1
+b = 1
+N=100
+n=3
+xrand=np.zeros(N)#dx
+yrand=np.zeros(N)#dy
+zrand=np.zeros(N)#dz
+#fungsi np.zeros mengembalikan array baru dengan bentuk dari tipe yang diberikan, di mana nilai elemen sebagai 0.
+integral=0.0
+for i in range(n+1):
+    for i in range(len(xrand)):
+        xrand[i]=random.uniform(a,b)
+
+    for i in range(len(yrand)):
+        yrand[i]=random.uniform(a,b)
+
+    for i in range(len(zrand)):
+        zrand[i]=random.uniform(a,b)
+
+    def func(x,y,z):
+        return (x**2)+(y**2)+(z**2)
+
+
+    for i in range(N):
+        integral+=func(xrand[i],yrand[i],zrand[i])
+
+jwb=(b-a)/float(N)*integral
+print(&quot;Hasil perkiraan : &quot;,jwb)
+</code></pre></div>
+
+
+<h2 id="output-program-2">Output Program 2<a class="headerlink" href="#output-program-2" title="Permanent link">&para;</a></h2>
+<p>Karena menggunakan bilangan random, maka nilai perkiraan yang muncul akan berubah-ubah setiap program dijalankan.</p>
+<ol>
+<li>Hasil run program pertama :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>Hasil perkiraan :  8.090240302495754
+</code></pre></div>
+
+
+<ol>
+<li>Hasil run program kedua :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>Hasil perkiraan :  7.93905619765376
+</code></pre></div>
+
+
+<p>Dan seterusnya.</p>
+<p>Kemudian dibandingkan dengan perhitungan manual sebagai berikut :</p>
+<h2 id="perhitungan-manual">Perhitungan manual<a class="headerlink" href="#perhitungan-manual" title="Permanent link">&para;</a></h2>
+<p><img alt="mcmanual" src="C:\Users\Oryzha\Documents\Iqbal\Kuliah\Semester 4\Komputasi Numerik\Tugas 7\mcmanual.jpg" /></p>
+<p>Perbandingan hasil perhitungan program dan perhitungan manual selisihnya yaitu :</p>
+<ol>
+<li>8.090240302495754 - 8 = 0.090240302495754</li>
+<li>7.93905619765376 - 8 = -0.06094380234624‬</li>
+</ol>
+<p>Kesimpulan :</p>
+<p>Selisih hasil perhitungan program dan perhitungan manual sekitar -0.1 sd 0.1.</p>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Tugas-6/" title="Metode Eurel" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Metode Eurel
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
